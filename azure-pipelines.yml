@@ -13,7 +13,6 @@ variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '6.x'
-
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
@@ -31,9 +30,7 @@ steps:
   inputs:
     verbose: false
 
-- script: |
-    echo $(wwwrootDir)
-    sass --watch $(wwwrootDir):$(wwwrootDir) --debug
+- script: './node_modules/.bin/sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
