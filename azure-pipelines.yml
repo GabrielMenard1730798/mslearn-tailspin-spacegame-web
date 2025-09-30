@@ -31,7 +31,9 @@ steps:
   inputs:
     verbose: false
 
-- script: sass --watch $(wwwrootDir):$(wwwrootDir)
+- script: |
+    echo $(wwwrootDir)
+    sass --watch $(wwwrootDir):$(wwwrootDir) --debug
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
